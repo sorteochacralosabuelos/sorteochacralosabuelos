@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,460 +6,174 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#dff5fb">
 <title>Sorteo solidario | Chacra Los Abuelos</title>
-
 <style>
 :root {
-  --sky:#dff5fb;
-  --sky2:#c7eaf6;
-  --blue:#153f6b;
-  --blue2:#2d6390;
-  --ink:#12385d;
-  --line:#9bcde0;
+  --sky:#dff5fb; --sky2:#c7eaf6; --blue:#153f6b;
+  --blue2:#2d6390; --ink:#12385d; --line:#9bcde0;
   --muted:#4d6d86;
 }
-
 * { box-sizing:border-box; }
-
 body {
-  margin:0;
-  color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;
+  margin:0; color:var(--ink); font-family:Arial,Helvetica,sans-serif;
   background:linear-gradient(180deg,#dff6fc 0%,#f7fdff 55%,#d9f1f8 100%);
   min-height:100vh;
 }
-
-.page {
-  max-width:1000px;
-  margin:auto;
-  padding:22px 16px 36px;
-}
-
-.hero {
-  text-align:center;
-  padding:20px 12px 12px;
-}
-
-.brand {
-  font-size:.85rem;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-  font-weight:700;
-}
-
-.place {
-  font-family:Georgia,serif;
-  font-style:italic;
-  margin-top:5px;
-  color:var(--blue2);
-}
-
+.page { max-width:1000px; margin:auto; padding:22px 16px 36px; }
+.hero { text-align:center; padding:20px 12px 12px; }
+.brand { font-size:.85rem; letter-spacing:.17em; text-transform:uppercase; font-weight:700; }
+.place { font-family:Georgia,serif; font-style:italic; margin-top:5px; color:var(--blue2); }
 h1 {
-  font-family:Georgia,serif;
-  font-size:clamp(2.7rem,8vw,5.3rem);
-  line-height:.98;
-  margin:20px 0 5px;
-  color:var(--blue);
-  font-weight:700;
-  font-style:italic;
-  letter-spacing:-.04em;
+  font-family:Georgia,serif; font-size:clamp(2.7rem,8vw,5.3rem);
+  line-height:.98; margin:20px 0 5px; color:var(--blue);
+  font-weight:700; font-style:italic; letter-spacing:-.04em;
 }
-
 .ribbon {
-  display:inline-block;
-  background:var(--blue2);
-  color:white;
-  padding:8px 25px;
-  transform:rotate(-1deg);
-  font-weight:800;
-  letter-spacing:.14em;
-  margin:10px 0;
+  display:inline-block; background:var(--blue2); color:white; padding:8px 25px;
+  transform:rotate(-1deg); font-weight:800; letter-spacing:.14em; margin:10px 0;
 }
-
-.subtitle {
-  font-family:Georgia,serif;
-  font-style:italic;
-  font-size:clamp(1.1rem,3vw,1.5rem);
-  margin:9px auto 22px;
-}
-
+.subtitle { font-family:Georgia,serif; font-style:italic; font-size:clamp(1.1rem,3vw,1.5rem); margin:9px auto 22px; }
 .card {
-  background:rgba(255,255,255,.88);
-  border:1px solid #b8dbe8;
-  border-radius:18px;
-  padding:clamp(16px,3vw,28px);
-  box-shadow:0 8px 24px #235a7810;
-  margin:16px 0;
+  background:rgba(255,255,255,.88); border:1px solid #b8dbe8; border-radius:18px;
+  padding:clamp(16px,3vw,28px); box-shadow:0 8px 24px #235a7810; margin:16px 0;
 }
-
-.section-title {
-  font:700 1.45rem Georgia,serif;
-  margin:0 0 14px;
-  color:var(--blue);
-}
-
-.intro {
-  color:var(--muted);
-  line-height:1.6;
-}
-
-.fields {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin:18px 0;
-}
-
+.section-title { font:700 1.45rem Georgia,serif; margin:0 0 14px; color:var(--blue); }
+.intro { color:var(--muted); line-height:1.6; }
+.fields { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0; }
 .fields input {
-  width:100%;
-  padding:13px 14px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  font:inherit;
-  background:white;
-  color:var(--ink);
+  width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px;
+  font:inherit; background:white; color:var(--ink);
 }
-
-.numbers {
-  display:grid;
-  grid-template-columns:repeat(10,minmax(0,1fr));
-  gap:8px;
-}
-
+.numbers { display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); gap:8px; }
 .num {
-  aspect-ratio:1;
-  border:1.5px solid #82b7cf;
-  border-radius:50%;
-  background:#e4f6fc;
-  color:var(--blue);
-  font-size:clamp(.75rem,2.1vw,1rem);
-  font-weight:700;
-  cursor:pointer;
-  transition:.15s;
+  aspect-ratio:1; border:1.5px solid #82b7cf; border-radius:50%;
+  background:#e4f6fc; color:var(--blue); font-size:clamp(.75rem,2.1vw,1rem);
+  font-weight:700; cursor:pointer; transition:.15s;
 }
-
-.num:hover:not(:disabled) {
-  transform:translateY(-2px);
-  background:#ccecf7;
-}
-
-.num.selected {
-  background:var(--blue);
-  color:white;
-  border-color:var(--blue);
-}
-
+.num:hover:not(:disabled) { transform:translateY(-2px); background:#ccecf7; }
+.num.selected { background:var(--blue); color:white; border-color:var(--blue); }
 .num.reserved {
-  background:#d4dce2;
-  color:#153f6b;
-  border:2px solid #153f6b;
-  cursor:not-allowed;
-  position:relative;
-  font-weight:900;
+  background:#d4dce2; color:#153f6b; border:2px solid #153f6b;
+  cursor:not-allowed; position:relative; font-weight:900; font-size:0;
 }
-
 .num.reserved::after {
-  content:"×";
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.8em;
-  color:#153f6b;
-  pointer-events:none;
+  content:"×"; position:absolute; inset:0; display:flex; align-items:center;
+  justify-content:center; font-size:1.8em; color:#153f6b; pointer-events:none;
 }
-
-.num.reserved {
-  font-size:0;
-}
-
 .num.reserved::before {
-  content:attr(data-number);
-  font-size:14px;
-  position:relative;
-  z-index:1;
+  content:attr(data-number); font-size:14px; position:relative; z-index:1;
 }
-
-.legend {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  font-size:.9rem;
-  color:var(--muted);
-  margin-top:16px;
-}
-
+.legend { display:flex; gap:18px; flex-wrap:wrap; font-size:.9rem; color:var(--muted); margin-top:16px; }
 .dot {
-  display:inline-block;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  margin-right:6px;
-  vertical-align:-1px;
-  border:1px solid #82b7cf;
-  background:#e4f6fc;
+  display:inline-block; width:12px; height:12px; border-radius:50%;
+  margin-right:6px; vertical-align:-1px; border:1px solid #82b7cf; background:#e4f6fc;
 }
-
 .dot.sel { background:var(--blue); }
-
-.dot.res {
-  background:#d4dce2;
-  border-color:#aebbc4;
-}
-
+.dot.res { background:#d4dce2; border-color:#aebbc4; }
 .summary {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  background:#dff3fa;
-  border-radius:12px;
-  padding:16px 18px;
-  margin-top:18px;
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  background:#dff3fa; border-radius:12px; padding:16px 18px; margin-top:18px;
 }
-
-.summary strong {
-  font:700 1.7rem Georgia,serif;
-}
-
-.summary small {
-  display:block;
-  color:var(--muted);
-  margin-bottom:3px;
-}
-
-.paygrid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-.alias {
-  display:flex;
-  gap:8px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
+.summary strong { font:700 1.7rem Georgia,serif; }
+.summary small { display:block; color:var(--muted); margin-bottom:3px; }
+.paygrid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.alias { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
 .alias code {
-  font-size:1.15rem;
-  font-weight:800;
-  letter-spacing:.04em;
-  background:#e2f5fb;
-  border-radius:9px;
-  padding:12px 14px;
-  flex:1;
+  font-size:1.15rem; font-weight:800; letter-spacing:.04em; background:#e2f5fb;
+  border-radius:9px; padding:12px 14px; flex:1;
 }
-
 .btn {
-  border:0;
-  border-radius:10px;
-  background:var(--blue);
-  color:white;
-  padding:13px 17px;
-  font-size:.95rem;
-  font-weight:700;
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
+  border:0; border-radius:10px; background:var(--blue); color:white;
+  padding:13px 17px; font-size:.95rem; font-weight:700; cursor:pointer;
+  text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px;
 }
-
-.btn:disabled {
-  opacity:.6;
-  cursor:wait;
-}
-
-.btn.secondary {
-  background:#d8eff7;
-  color:var(--blue);
-  border:1px solid #a9d3e3;
-}
-
-.btn:focus-visible,
-.num:focus-visible,
-input:focus-visible {
-  outline:3px solid #6ca9d0;
-  outline-offset:2px;
-}
-
-.wide {
-  width:100%;
-  margin-top:12px;
-}
-
-.note {
-  font-size:.88rem;
-  color:var(--muted);
-  line-height:1.55;
-}
-
-.prizes {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.prize {
-  border:1px solid #c2e1ec;
-  background:#edf9fd;
-  border-radius:12px;
-  padding:16px;
-}
-
-.prize b {
-  display:block;
-  margin-bottom:6px;
-}
-
-.footer {
-  text-align:center;
-  font:italic 1.3rem Georgia,serif;
-  color:var(--blue);
-  padding:22px 0 4px;
-}
-
-.tiny {
-  text-align:center;
-  font-size:.78rem;
-  color:var(--muted);
-  margin-top:14px;
-}
-
+.btn:disabled { opacity:.6; cursor:wait; }
+.btn.secondary { background:#d8eff7; color:var(--blue); border:1px solid #a9d3e3; }
+.btn:focus-visible, .num:focus-visible, input:focus-visible { outline:3px solid #6ca9d0; outline-offset:2px; }
+.wide { width:100%; margin-top:12px; }
+.note { font-size:.88rem; color:var(--muted); line-height:1.55; }
+.prizes { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.prize { border:1px solid #c2e1ec; background:#edf9fd; border-radius:12px; padding:16px; }
+.prize b { display:block; margin-bottom:6px; }
+.footer { text-align:center; font:italic 1.3rem Georgia,serif; color:var(--blue); padding:22px 0 4px; }
+.tiny { text-align:center; font-size:.78rem; color:var(--muted); margin-top:14px; }
 @media(max-width:600px) {
   .fields,.paygrid,.prizes { grid-template-columns:1fr; }
-  .numbers { gap:5px; }
-  .num { font-size:.77rem; }
-  .card { padding:15px; }
-  .summary { padding:13px; }
-  .summary strong { font-size:1.35rem; }
-  .page { padding:12px 10px 24px; }
+  .numbers { gap:5px; } .num { font-size:.77rem; }
+  .card { padding:15px; } .summary { padding:13px; }
+  .summary strong { font-size:1.35rem; } .page { padding:12px 10px 24px; }
 }
 </style>
 </head>
-
 <body>
 <main class="page">
-
   <header class="hero">
     <div class="brand">Chacra Los Abuelos</div>
     <div class="place">Gobernador Castro</div>
     <h1>Sorteo</h1>
     <div class="ribbon">100 NÚMEROS</div>
     <p class="subtitle">¡Tu número puede hacer la diferencia!</p>
-    <p class="intro">
-      Elegí tus números y ayudanos a arreglar el techo de la chacra.
-      ¡Gracias por ser parte de este proyecto!
-    </p>
+    <p class="intro">Elegí tus números y ayudanos a arreglar el techo de la chacra. ¡Gracias por ser parte de este proyecto!</p>
   </header>
 
   <section class="card">
     <h2 class="section-title">1. Tus datos</h2>
-
     <div class="fields">
-      <input id="name" type="text"
-        placeholder="Tu nombre y apellido" autocomplete="name" required>
-      <input id="phone" type="tel"
-        placeholder="Tu WhatsApp (con código de área)" autocomplete="tel" required>
+      <input id="name" type="text" placeholder="Tu nombre y apellido" autocomplete="name" required>
+      <input id="phone" type="tel" placeholder="Tu WhatsApp (con código de área)" autocomplete="tel" required>
     </div>
-
     <h2 class="section-title">2. Elegí tus números</h2>
-    <p class="intro">
-      Tocá uno o varios números disponibles.
-      Cada número cuesta <b>$5.000</b>.
-    </p>
-
+    <p class="intro">Tocá uno o varios números disponibles. Cada número cuesta <b>$5.000</b>.</p>
     <div id="numbers" class="numbers" aria-label="Números del sorteo"></div>
-
     <div class="legend">
       <span><i class="dot"></i>Disponible</span>
       <span><i class="dot sel"></i>Seleccionado</span>
       <span><i class="dot res"></i>Reservado</span>
     </div>
-
     <div class="summary">
-      <div>
-        <small id="count">0 números seleccionados</small>
-        <span id="chosen">Ningún número elegido</span>
-      </div>
-      <div>
-        <small>Total a transferir</small>
-        <strong id="total">$0</strong>
-      </div>
+      <div><small id="count">0 números seleccionados</small><span id="chosen">Ningún número elegido</span></div>
+      <div><small>Total a transferir</small><strong id="total">$0</strong></div>
     </div>
   </section>
 
   <section class="card">
     <h2 class="section-title">3. Pago por transferencia</h2>
-
     <div class="paygrid">
       <div>
-        <p class="intro">
-          Transferí el total al alias indicado y después enviá el comprobante
-          por WhatsApp para confirmar tu participación.
-        </p>
-
+        <p class="intro">Transferí el total al alias indicado y después enviá el comprobante por WhatsApp para confirmar tu participación.</p>
         <div class="alias">
           <code id="aliasText">sorteochacra</code>
-          <button class="btn secondary" id="copyAlias" type="button">
-            Copiar alias
-          </button>
+          <button class="btn secondary" id="copyAlias" type="button">Copiar alias</button>
         </div>
-
-        <p class="note">
-          Cuenta de Brubank. Revisá que el importe sea correcto antes de transferir.
-        </p>
+        <p class="note">Cuenta de Brubank. Revisá que el importe sea correcto antes de transferir.</p>
       </div>
-
       <div>
         <h3 style="margin-top:0">Premios</h3>
         <div class="prizes">
-          <div class="prize">
-            <b>🥇 1.º premio</b>
-            Pasar el día en la Chacra Los Abuelos.
-          </div>
-          <div class="prize">
-            <b>🥈 2.º premio</b>
-            Pasar el día en la chacra.
-          </div>
+          <div class="prize"><b>🥇 1.º premio</b>Pasar el día en la Chacra Los Abuelos.</div>
+          <div class="prize"><b>🥈 2.º premio</b>Pasar el día en la chacra.</div>
         </div>
       </div>
     </div>
-
-    <button class="btn wide" id="send" type="button">
-      Enviar selección por WhatsApp
-    </button>
-
-    <p class="note">
-      Se abrirá WhatsApp con un mensaje preparado.
-      Adjuntá el comprobante antes de enviarlo.
-    </p>
+    <button class="btn wide" id="send" type="button">Enviar selección por WhatsApp</button>
+    <p class="note">Se abrirá WhatsApp con un mensaje preparado. Adjuntá el comprobante antes de enviarlo.</p>
   </section>
-
   <footer class="footer">¡Gracias por ser parte de este proyecto! ♡</footer>
   <p class="tiny">Chacra Los Abuelos · Sorteo solidario</p>
-
 </main>
 
 <script>
 const PRICE = 5000;
 const ALIAS = 'sorteochacra';
 const WHATSAPP_NUMBER = '5491160115583';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxmDyJWXZGg2fJVKZ_N43hJH7ffs2XyR5R9-RUBQjfU1E67qRYFWBwuaqcKQNWO_wFmmA/exec';
 
-const API_URL = 'https://script.google.com/macros/s/AKfycbzCwP9ibOsDsGXdRdg-88U7pLfDyV1tYH-WY0MNEvi5gdCSCKyF_6QeWPRQk_UzzPyi3A/exec';
-
-// Números reservados antes de conectar la hoja.
-const RESERVED_NUMBERS = [4, 5, 19, 27, 32, 33, 54, 59];
-
+// Estos números quedan bloqueados aunque falle la conexión con la planilla.
+const RESERVED_NUMBERS = [4, 5, 6, 16, 19, 27, 32, 33, 54, 59];
 const reserved = new Set(RESERVED_NUMBERS);
 const selected = new Set();
-
 const grid = document.getElementById('numbers');
 const sendButton = document.getElementById('send');
 
-// Crear los 100 números automáticamente.
 for (let n = 1; n <= 100; n++) {
   const button = document.createElement('button');
   button.type = 'button';
@@ -473,47 +187,34 @@ for (let n = 1; n <= 100; n++) {
 
 function money(n) {
   return n.toLocaleString('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
-    maximumFractionDigits: 0
+    style: 'currency', currency: 'ARS', maximumFractionDigits: 0
   });
 }
 
 function update() {
   const nums = [...selected].sort((a, b) => a - b);
-
   document.getElementById('count').textContent =
     nums.length + ' número' + (nums.length === 1 ? '' : 's') +
     ' seleccionado' + (nums.length === 1 ? '' : 's');
-
   document.getElementById('chosen').textContent =
     nums.length ? 'Números: ' + nums.join(', ') : 'Ningún número elegido';
-
-  document.getElementById('total').textContent =
-    money(nums.length * PRICE);
+  document.getElementById('total').textContent = money(nums.length * PRICE);
 }
 
 function renderNumbers() {
   grid.querySelectorAll('[data-number]').forEach(button => {
     const n = Number(button.dataset.number);
     const isReserved = reserved.has(n);
-
     button.classList.toggle('reserved', isReserved);
     button.classList.toggle('selected', selected.has(n));
     button.disabled = isReserved;
     button.textContent = n;
     button.setAttribute('aria-pressed', selected.has(n) ? 'true' : 'false');
     button.title = isReserved ? 'Vendido / reservado' : 'Disponible';
-
     button.onclick = () => {
       if (reserved.has(n)) return;
-
-      if (selected.has(n)) {
-        selected.delete(n);
-      } else {
-        selected.add(n);
-      }
-
+      if (selected.has(n)) selected.delete(n);
+      else selected.add(n);
       renderNumbers();
       update();
     };
@@ -521,58 +222,37 @@ function renderNumbers() {
 }
 
 async function getReservations() {
-  const response = await fetch(API_URL, {
-    method: 'GET',
-    cache: 'no-store'
-  });
-
-  if (!response.ok) {
-    throw new Error('No se pudo consultar Google Sheets');
-  }
-
+  const response = await fetch(API_URL, { method: 'GET', cache: 'no-store' });
+  if (!response.ok) throw new Error('No se pudo consultar Google Sheets');
   return response.json();
 }
 
 async function loadReservations(showError = true) {
   try {
     const data = await getReservations();
-
     (data.reservas || []).forEach(item => {
       const numero = Number(item.numero);
       const estado = String(item.estado || '').toLowerCase();
-
-      if (
-        Number.isInteger(numero) &&
-        numero >= 1 &&
-        numero <= 100 &&
-        ['reservado', 'pagado'].includes(estado)
-      ) {
+      if (Number.isInteger(numero) && numero >= 1 && numero <= 100 &&
+          ['reservado', 'pagado'].includes(estado)) {
         reserved.add(numero);
         selected.delete(numero);
       }
     });
-
     renderNumbers();
     update();
     return true;
-
   } catch (error) {
     console.error('Error consultando Apps Script:', error);
-
     if (showError) {
-      alert(
-        'No pudimos actualizar los números desde Google Sheets. ' +
-        'Revisá que Apps Script esté publicado como aplicación web.'
-      );
+      alert('No pudimos actualizar los números desde Google Sheets. Revisá que Apps Script esté publicado como aplicación web.');
     }
-
     return false;
   }
 }
 
 document.getElementById('copyAlias').addEventListener('click', async () => {
   const btn = document.getElementById('copyAlias');
-
   try {
     await navigator.clipboard.writeText(ALIAS);
   } catch (error) {
@@ -583,7 +263,6 @@ document.getElementById('copyAlias').addEventListener('click', async () => {
     document.execCommand('copy');
     area.remove();
   }
-
   btn.textContent = '¡Alias copiado!';
   setTimeout(() => btn.textContent = 'Copiar alias', 1800);
 });
@@ -597,7 +276,6 @@ sendButton.addEventListener('click', async () => {
     alert('Completá tu nombre y tu WhatsApp para continuar.');
     return;
   }
-
   if (nums.length === 0) {
     alert('Elegí al menos un número.');
     return;
@@ -607,64 +285,33 @@ sendButton.addEventListener('click', async () => {
   sendButton.textContent = 'Verificando disponibilidad...';
 
   try {
-    // Consultar de nuevo los números reservados.
     const latest = await getReservations();
-
     const occupied = new Set(
       (latest.reservas || [])
-        .filter(item =>
-          ['reservado', 'pagado'].includes(
-            String(item.estado || '').toLowerCase()
-          )
-        )
+        .filter(item => ['reservado', 'pagado'].includes(String(item.estado || '').toLowerCase()))
         .map(item => Number(item.numero))
     );
-
     const conflict = nums.find(n => reserved.has(n) || occupied.has(n));
 
     if (conflict !== undefined) {
       occupied.forEach(n => reserved.add(n));
-
-      nums.forEach(n => {
-        if (reserved.has(n)) selected.delete(n);
-      });
-
+      nums.forEach(n => { if (reserved.has(n)) selected.delete(n); });
       renderNumbers();
       update();
-
-      alert(
-        'El número ' + conflict +
-        ' ya está reservado. Actualizamos la página; elegí nuevamente.'
-      );
+      alert('El número ' + conflict + ' ya está reservado. Actualizamos la página; elegí nuevamente.');
       return;
     }
 
     sendButton.textContent = 'Guardando reserva...';
-
-    // Guardar cada número en Apps Script.
     for (const numero of nums) {
       const response = await fetch(API_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify({
-          numero: numero,
-          nombre: name,
-          telefono: phone
-        })
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ numero, nombre: name, telefono: phone })
       });
-
-      if (!response.ok) {
-        throw new Error('Error de conexión al guardar el número ' + numero);
-      }
-
+      if (!response.ok) throw new Error('Error de conexión al guardar el número ' + numero);
       const result = await response.json();
-
-      if (!result.ok) {
-        throw new Error(result.error || 'No se pudo guardar el número ' + numero);
-      }
-
+      if (!result.ok) throw new Error(result.error || 'No se pudo guardar el número ' + numero);
       reserved.add(numero);
     }
 
@@ -680,29 +327,12 @@ sendButton.addEventListener('click', async () => {
     selected.clear();
     renderNumbers();
     update();
-
-    alert(
-      '¡Reserva registrada! Ahora se abrirá WhatsApp. ' +
-      'Adjuntá el comprobante antes de enviar el mensaje.'
-    );
-
-    window.open(
-      'https://wa.me/' + WHATSAPP_NUMBER +
-      '?text=' + encodeURIComponent(message),
-      '_blank',
-      'noopener'
-    );
-
+    alert('¡Reserva registrada! Ahora se abrirá WhatsApp. Adjuntá el comprobante antes de enviar el mensaje.');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
   } catch (error) {
     console.error('Error registrando reserva:', error);
-
     await loadReservations(false);
-
-    alert(
-      'No pudimos confirmar toda la reserva. Revisá la pestaña ' +
-      '"Reservas" en Google Sheets antes de volver a intentarlo.'
-    );
-
+    alert('No pudimos confirmar toda la reserva. Revisá la pestaña "Reservas" en Google Sheets antes de volver a intentarlo.');
   } finally {
     sendButton.disabled = false;
     sendButton.textContent = 'Enviar selección por WhatsApp';
@@ -713,7 +343,5 @@ renderNumbers();
 update();
 loadReservations();
 </script>
-
 </body>
 </html>
-```
